@@ -7,4 +7,7 @@
     <h3>student Name: {{student_info.first_name}} {{student_info.last_name}}</h3>
     <h3>Email: {{student_info.email}}</h3>
     <h3>Phone: {{student_info.phone}}</h3>
+
+    <a href="{% url 'first_app:student_update' student_id=student_info.id %}" class="btn btn-primary">Update</a>
+    <a href="{% url 'first_app:student_delete' student_id=student_info.id %}" class="btn btn-primary">Delete</a>
 {% endblock body %}
