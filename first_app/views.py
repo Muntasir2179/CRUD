@@ -33,3 +33,11 @@ def student_form(request):
         'student_form': form,
     }
     return render(request, 'first_app/student_form.html', context=diction)
+
+
+def student_info(request, student_id):
+    student_info = Student.objects.get(pk=student_id)
+    diction = {
+        'student_info': student_info,
+    }
+    return render(request, 'first_app/student_info.html', context=diction)
