@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from first_app import forms
+from .models import Student
 
 # Create your views here.
 
 
 def index(request):
+    student_list = Student.objects.all().order_by('first_name')
     diction = {
-        'title': "Index"
+        'title': "Student List",
+        'student_list': student_list,
     }
     return render(request, 'first_app/index.html', context=diction)
 
