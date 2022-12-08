@@ -9,5 +9,6 @@ class Student(models.Model):
     email = models.EmailField()
     phone = models.IntegerField()
 
+    # __str__(self) function represents the profile data title in the admin database
     def __str__(self):
         return str(self.pk) + " " + self.first_name + " " + self.last_name
