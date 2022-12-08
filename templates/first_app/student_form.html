@@ -1,12 +1,20 @@
 {% extends 'first_app/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'first_app/student_form.css' %}">
+{% endblock styles %}
 
 {% block body %}
     <h1>Student Form</h1>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {% comment %} as_p makes the form component varticaly arranged {% endcomment %}
-        {{ student_form.as_p }}
-
-        <input type="submit" name="submit" value="Add Student">
-    </form>
+    <div class="form-group">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% comment %} as_p makes the form component varticaly arranged {% endcomment %}
+            {{ student_form.as_p }}
+            
+            <button type="submit" class="btn btn-success">Add Student</button>
+            {% comment %} <input type="submit" name="submit" value="Add Student"> {% endcomment %}
+        </form>
+    </div>
 {% endblock body %}

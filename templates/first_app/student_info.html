@@ -1,13 +1,22 @@
 {% extends 'first_app/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'first_app/student_info.css' %}">
+{% endblock styles %}
 
 {% block body %}
-    <h1>Student Info</h1>
+    <h1>Student Information</h1>
 
-    <h3>Student ID: {{student_info.id}}</h3>
-    <h3>student Name: {{student_info.first_name}} {{student_info.last_name}}</h3>
-    <h3>Email: {{student_info.email}}</h3>
-    <h3>Phone: {{student_info.phone}}</h3>
+    <div class="info-container">
+        <h3>Student ID: {{student_info.id}}</h3>
+        <h3>student Name: {{student_info.first_name}} {{student_info.last_name}}</h3>
+        <h3>Email: {{student_info.email}}</h3>
+        <h3>Phone: {{student_info.phone}}</h3>
+    </div>
 
-    <a href="{% url 'first_app:student_update' student_id=student_info.id %}" class="btn btn-primary">Update</a>
-    <a href="{% url 'first_app:student_delete' student_id=student_info.id %}" class="btn btn-primary">Delete</a>
+    <div class="button-container">
+        <a href="{% url 'first_app:student_update' student_id=student_info.id %}" class="btn btn-primary">Update</a>
+        <a href="{% url 'first_app:student_delete' student_id=student_info.id %}" class="btn btn-danger">Delete</a>
+    </div>
 {% endblock body %}

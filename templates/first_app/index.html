@@ -1,17 +1,24 @@
 {% extends 'first_app/base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'first_app/index.css' %}">
+{% endblock styles %}
 
 {% block body %}
     {% csrf_token %}
     <h1>{{ title }}</h1>
 
+    <div class="student-list-container">
     {% if student_list %}
-    <ul>
-        {% for student in student_list %}
-            <li><a href="{% url 'first_app:student_info' student_id=student.id %}">{{student.first_name}} {{student.last_name}}</a></li>
-        {% endfor %}
-    </ul>
-    {% else %}
-        <h1>No Student</h1>
+        <ul class="student-list">
+            {% for student in student_list %}
+                <li class="list-item"><a href="{% url 'first_app:student_info' student_id=student.id %}">{{student.first_name}} {{student.last_name}}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h3>No Student</h3>
     {% endif %}
+    </div>
     
 {% endblock body %}

@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.form-group {
+    width: 500px;
+    margin: 20px auto;
+    background-color: #8EC3B0;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.btn {
+    margin: 20px 0 0 0;
+}

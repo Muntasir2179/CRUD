@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin: 30px 0;
+}
+
+body .info-container {
+    width: 500px;
+    margin: 0 auto;
+    background-color: #C5D7BD;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+body .button-container {
+    width: 500px;
+    margin: 15px auto;
+}
