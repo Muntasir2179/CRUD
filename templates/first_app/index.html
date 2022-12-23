@@ -12,6 +12,7 @@
     <div class="student-list-container">
     {% if student_list %}
         <ul class="student-list">
+            {% comment %} using loop to show the list returned by the index() function from views.py {% endcomment %}
             {% for student in student_list %}
                 <li class="list-item"><a href="{% url 'first_app:student_info' student_id=student.id %}">{{student.first_name}} {{student.last_name}}</a></li>
             {% endfor %}

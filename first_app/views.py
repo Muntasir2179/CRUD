@@ -6,11 +6,14 @@ from .models import Student
 
 
 def index(request):
+    # collecting all the students information in the student_list variable with the following statement
     student_list = Student.objects.all().order_by('first_name')
     diction = {
         'title': "Student List",
         'student_list': student_list,
     }
+    # returning the index.html page with the list of students and the title
+    # student_list will be handled in the html file
     return render(request, 'first_app/index.html', context=diction)
 
 
@@ -27,7 +30,7 @@ def student_form(request):
             return index(request)
             # calling index() function to return into the index page
 
-    # sending data to the HTML page so that we can access the data and show that data into the web page
+    # Creating a student form and sending the to the user
     diction = {
         'title': "Student Form",
         'student_form': form,
@@ -36,6 +39,7 @@ def student_form(request):
 
 
 def student_info(request, student_id):
+    # searching the student with the following statement
     student_info = Student.objects.get(pk=student_id)
     diction = {
         'student_info': student_info,
@@ -44,9 +48,13 @@ def student_info(request, student_id):
 
 
 def student_update(request, student_id):
+    # finding the student by the following statement
     student_info = Student.objects.get(pk=student_id)
+
+    # putting all the data into the form to edit that information
     form = forms.StudentForm(instance=student_info)
 
+    # if user hits update button then the method will be "POST"
     if request.method == "POST":
         form = forms.StudentForm(request.POST, instance=student_info)
 
@@ -56,10 +64,12 @@ def student_update(request, student_id):
     diction = {
         'student_form': form,
     }
+    # if the page reloads then return the same page with same data
     return render(request, 'first_app/student_update.html', context=diction)
 
 
 def student_delete(request, student_id):
+    # deleting the student by the following statement
     student = Student.objects.get(pk=student_id).delete()
     diction = {
         'delete_message': "Delete Done",
